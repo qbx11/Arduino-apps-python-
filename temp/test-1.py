@@ -1,0 +1,14 @@
+import serial
+#every time we run this code, arduino restarts because opening serial port sets DTR line LOW (DTR is connected to reset pin)
+
+# set COM port and baud rate
+ser = serial.Serial('COM5', 19200)
+
+while True:
+    if ser.in_waiting > 0: #checks if there is any data to be read on serial port
+        #.readline() -> reads whole line of text as bytes send from arduino until it end of lin e sign (\n)
+        #.decode('utf-8') -> decodes from bytes to text
+        #strip() -> deletes white signs (\n\r)
+        data = ser.readline().decode('utf-8').strip()
+        print(data)
+
