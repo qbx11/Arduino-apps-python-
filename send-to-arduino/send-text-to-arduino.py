@@ -15,7 +15,10 @@ try:
                     user_input = input()
                     if len(user_input) > 0:
                         ser.write((user_input[0] + "\n").encode('utf-8'))
-
+                #tekst
+                elif "Podaj tekst" in data:
+                    user_input = input()
+                    ser.write((user_input + "\n").encode('utf-8'))
 
 
 except KeyboardInterrupt:
